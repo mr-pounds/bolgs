@@ -1,0 +1,64 @@
+<article class="post" id="post">
+  <header class="post-head">
+    <h1 class="post-title">
+      <a class="title" href="<%- url_for(post.path) %>">
+        <%= post.title %>
+      </a>
+    </h1>
+  </header>
+  <div class="post-datetag">
+    <div class="post-date">
+      <%- partial('_partial/post/date') %>
+    </div>
+    |
+    <div class="post-tag">
+      <%- partial('_partial/post/tag') %>
+    </div>
+    |
+    <div class="post-visit">
+      <span id="busuanzi_container_page_pv">
+        <span id="busuanzi_value_page_pv"></span> <%= __('article.hits') %>
+      </span>
+    </div>
+  </div>
+
+  <% if (theme.word_count && theme.word_count.enable) { %>
+    <div class="post-word-count" style="margin-bottom:0.5em">
+      <%- partial('_partial/post/word-count', {post: post}) %>
+    </div>
+  <% } %>
+
+  <% if(theme.toc){
+        var topic = toc(post.content, {
+                class: 'post-toc',
+                list_number: theme.toc.list_number
+            })
+        if(topic) {
+        %>
+        <div class="post-widget"  style="width:100%;margin-bottom:1em">
+            <nav class="post-toc-wrap" id="post-toc">
+                <h4>目录</h4>
+                <%- toc(post.content, {
+                    class: 'post-toc',
+                    list_number: theme.toc.list_number
+                }) %>
+            </nav>
+        </div>
+       <% }
+    } %>
+
+  <% if (config.post_copy) { %>
+    <div class="post-cc">
+      <%= __('article.copyright') %>
+      <% if (config.post_copy.text && config.post_copy.text_en) { %>
+        <%- config.post_copy.text %> | <a href="<%- config.post_copy.link %>"><%- config.post_copy.text_en %></a>
+      <% } else { %>
+        <a href="<%- config.post_copy.link %>"><%- config.post_copy.text || config.post_copy.text_en %></a>
+      <% } %>
+    </div>
+  <% } %>
+
+  <div class="article-entry" itemprop="articleBody">
+    <%- post.content %>
+  </div>
+</article>

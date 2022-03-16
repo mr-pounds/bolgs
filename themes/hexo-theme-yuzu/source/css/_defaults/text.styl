@@ -1,0 +1,44 @@
+content-text()
+  line-height: 1.5em
+  text-indent: 2em
+  text-align: justify
+  font-size: content-font-size
+  font-family: content-font-family
+  font-weight: 400
+  word-break: break-word
+  padding-top: 0.25em
+  padding-bottom: 0.5em
+
+primary-link-text()
+  text-color(primary-color, primary-color-light, primary-color-dark)
+  font-size: default-font-size
+
+info-link-text()
+  text-color(primary-gray, primary-gray-light, primary-gray-dark)
+  font-size: default-font-size
+
+info-text()
+  text-color(primary-gray, primary-gray-light, primary-gray-dark)
+  font-size: info-font-size
+
+quoted-text()
+  padding-bottom: 0.5em
+
+  p
+    text-indent: 0
+    text-color(secondary-color, secondary-color-light, secondary-color-dark)
+    font-size: default-font-size
+
+    quote-sign()
+      font-family: fantasy
+      font-size: 1.5 * content-font-size
+
+    &:before
+      content: '“'
+      padding-right: 0.25em
+      quote-sign()
+
+    &:after
+      content: '”'
+      padding-left: 0.25em
+      quote-sign()
