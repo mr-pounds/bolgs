@@ -1,0 +1,14 @@
+widgets:
+  - type: toc
+    position: right
+    index: true
+    # Whether to collapse sub-headings when they are out-of-view
+    collapsed: true
+    # Maximum level of headings to show (1-6)
+    depth: 3
+  - type: recent_posts
+    position: right
+  - type: categories
+    position: left
+  - type: tags
+    position: left
