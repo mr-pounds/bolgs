@@ -5,7 +5,7 @@ Version      : 1.0.1
 Author       : zzz
 Date         : 2022-06-21 15:13:42
 LastEditors  : zzz
-LastEditTime : 2022-06-21 15:21:42
+LastEditTime : 2022-07-21 17:38:56
 """
 import os
 
@@ -61,4 +61,5 @@ for file_name in os.listdir(target_dir):
                 f.writelines(result[3:])
 
 # tt = "知识类型： #"
+print('done')
 # print(extract_hash_text(tt))
